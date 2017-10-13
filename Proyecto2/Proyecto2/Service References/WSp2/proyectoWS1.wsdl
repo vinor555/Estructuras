@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://proyecto2.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://proyecto2.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://proyecto2.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarMatriz">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="x" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="costoV" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="tiempoV" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarMatrizResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="graficarMatriz">
+        <s:complexType />
+      </s:element>
+      <s:element name="graficarMatrizResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="limpiarWS">
+        <s:complexType />
+      </s:element>
+      <s:element name="limpiarWSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insertarAb">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codDes" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomDes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarAbResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="graficarAb">
+        <s:complexType />
+      </s:element>
+      <s:element name="graficarAbResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="graficarAbDest">
+        <s:complexType />
+      </s:element>
+      <s:element name="graficarAbDestResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="graficarAbOrig">
+        <s:complexType />
+      </s:element>
+      <s:element name="graficarAbOrigResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="IngresarHash">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="reser" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cost" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="time" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IngresarHashResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="graficarHash">
+        <s:complexType />
+      </s:element>
+      <s:element name="graficarHashResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="buscarClaveHash">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscarClaveHashResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buscarClaveHashResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarVuelo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clave" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cod" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarVueloResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insertarAbdm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codDes" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomDes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarAbdmResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insertarAbom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codDes" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomDes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarAbomResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="busquedaABD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="numero" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="busquedaABDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="busquedaABDResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="recorrerCol">
+        <s:complexType />
+      </s:element>
+      <s:element name="recorrerColResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recorrerColResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="recorrerFil">
+        <s:complexType />
+      </s:element>
+      <s:element name="recorrerFilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recorrerFilResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarMatriz">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PrimerPais" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SegundoPais" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarMatrizResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="modificarMatriz">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PrimerPais" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SegundoPais" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="costo" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="tiempo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarMatrizResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="graficarGrafo">
+        <s:complexType />
+      </s:element>
+      <s:element name="graficarGrafoResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarMatrizSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarMatriz" />
+  </wsdl:message>
+  <wsdl:message name="insertarMatrizSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarMatrizResponse" />
+  </wsdl:message>
+  <wsdl:message name="graficarMatrizSoapIn">
+    <wsdl:part name="parameters" element="tns:graficarMatriz" />
+  </wsdl:message>
+  <wsdl:message name="graficarMatrizSoapOut">
+    <wsdl:part name="parameters" element="tns:graficarMatrizResponse" />
+  </wsdl:message>
+  <wsdl:message name="limpiarWSSoapIn">
+    <wsdl:part name="parameters" element="tns:limpiarWS" />
+  </wsdl:message>
+  <wsdl:message name="limpiarWSSoapOut">
+    <wsdl:part name="parameters" element="tns:limpiarWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarAbSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarAb" />
+  </wsdl:message>
+  <wsdl:message name="insertarAbSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarAbResponse" />
+  </wsdl:message>
+  <wsdl:message name="graficarAbSoapIn">
+    <wsdl:part name="parameters" element="tns:graficarAb" />
+  </wsdl:message>
+  <wsdl:message name="graficarAbSoapOut">
+    <wsdl:part name="parameters" element="tns:graficarAbResponse" />
+  </wsdl:message>
+  <wsdl:message name="graficarAbDestSoapIn">
+    <wsdl:part name="parameters" element="tns:graficarAbDest" />
+  </wsdl:message>
+  <wsdl:message name="graficarAbDestSoapOut">
+    <wsdl:part name="parameters" element="tns:graficarAbDestResponse" />
+  </wsdl:message>
+  <wsdl:message name="graficarAbOrigSoapIn">
+    <wsdl:part name="parameters" element="tns:graficarAbOrig" />
+  </wsdl:message>
+  <wsdl:message name="graficarAbOrigSoapOut">
+    <wsdl:part name="parameters" element="tns:graficarAbOrigResponse" />
+  </wsdl:message>
+  <wsdl:message name="IngresarHashSoapIn">
+    <wsdl:part name="parameters" element="tns:IngresarHash" />
+  </wsdl:message>
+  <wsdl:message name="IngresarHashSoapOut">
+    <wsdl:part name="parameters" element="tns:IngresarHashResponse" />
+  </wsdl:message>
+  <wsdl:message name="graficarHashSoapIn">
+    <wsdl:part name="parameters" element="tns:graficarHash" />
+  </wsdl:message>
+  <wsdl:message name="graficarHashSoapOut">
+    <wsdl:part name="parameters" element="tns:graficarHashResponse" />
+  </wsdl:message>
+  <wsdl:message name="buscarClaveHashSoapIn">
+    <wsdl:part name="parameters" element="tns:buscarClaveHash" />
+  </wsdl:message>
+  <wsdl:message name="buscarClaveHashSoapOut">
+    <wsdl:part name="parameters" element="tns:buscarClaveHashResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarVueloSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarVuelo" />
+  </wsdl:message>
+  <wsdl:message name="insertarVueloSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarVueloResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarAbdmSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarAbdm" />
+  </wsdl:message>
+  <wsdl:message name="insertarAbdmSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarAbdmResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarAbomSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarAbom" />
+  </wsdl:message>
+  <wsdl:message name="insertarAbomSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarAbomResponse" />
+  </wsdl:message>
+  <wsdl:message name="busquedaABDSoapIn">
+    <wsdl:part name="parameters" element="tns:busquedaABD" />
+  </wsdl:message>
+  <wsdl:message name="busquedaABDSoapOut">
+    <wsdl:part name="parameters" element="tns:busquedaABDResponse" />
+  </wsdl:message>
+  <wsdl:message name="recorrerColSoapIn">
+    <wsdl:part name="parameters" element="tns:recorrerCol" />
+  </wsdl:message>
+  <wsdl:message name="recorrerColSoapOut">
+    <wsdl:part name="parameters" element="tns:recorrerColResponse" />
+  </wsdl:message>
+  <wsdl:message name="recorrerFilSoapIn">
+    <wsdl:part name="parameters" element="tns:recorrerFil" />
+  </wsdl:message>
+  <wsdl:message name="recorrerFilSoapOut">
+    <wsdl:part name="parameters" element="tns:recorrerFilResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminarMatrizSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarMatriz" />
+  </wsdl:message>
+  <wsdl:message name="eliminarMatrizSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarMatrizResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarMatrizSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarMatriz" />
+  </wsdl:message>
+  <wsdl:message name="modificarMatrizSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarMatrizResponse" />
+  </wsdl:message>
+  <wsdl:message name="graficarGrafoSoapIn">
+    <wsdl:part name="parameters" element="tns:graficarGrafo" />
+  </wsdl:message>
+  <wsdl:message name="graficarGrafoSoapOut">
+    <wsdl:part name="parameters" element="tns:graficarGrafoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="proyectoWSSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarMatriz">
+      <wsdl:input message="tns:insertarMatrizSoapIn" />
+      <wsdl:output message="tns:insertarMatrizSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="graficarMatriz">
+      <wsdl:input message="tns:graficarMatrizSoapIn" />
+      <wsdl:output message="tns:graficarMatrizSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="limpiarWS">
+      <wsdl:input message="tns:limpiarWSSoapIn" />
+      <wsdl:output message="tns:limpiarWSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarAb">
+      <wsdl:input message="tns:insertarAbSoapIn" />
+      <wsdl:output message="tns:insertarAbSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="graficarAb">
+      <wsdl:input message="tns:graficarAbSoapIn" />
+      <wsdl:output message="tns:graficarAbSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="graficarAbDest">
+      <wsdl:input message="tns:graficarAbDestSoapIn" />
+      <wsdl:output message="tns:graficarAbDestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="graficarAbOrig">
+      <wsdl:input message="tns:graficarAbOrigSoapIn" />
+      <wsdl:output message="tns:graficarAbOrigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarHash">
+      <wsdl:input message="tns:IngresarHashSoapIn" />
+      <wsdl:output message="tns:IngresarHashSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="graficarHash">
+      <wsdl:input message="tns:graficarHashSoapIn" />
+      <wsdl:output message="tns:graficarHashSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarClaveHash">
+      <wsdl:input message="tns:buscarClaveHashSoapIn" />
+      <wsdl:output message="tns:buscarClaveHashSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarVuelo">
+      <wsdl:input message="tns:insertarVueloSoapIn" />
+      <wsdl:output message="tns:insertarVueloSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarAbdm">
+      <wsdl:input message="tns:insertarAbdmSoapIn" />
+      <wsdl:output message="tns:insertarAbdmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarAbom">
+      <wsdl:input message="tns:insertarAbomSoapIn" />
+      <wsdl:output message="tns:insertarAbomSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="busquedaABD">
+      <wsdl:input message="tns:busquedaABDSoapIn" />
+      <wsdl:output message="tns:busquedaABDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="recorrerCol">
+      <wsdl:input message="tns:recorrerColSoapIn" />
+      <wsdl:output message="tns:recorrerColSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="recorrerFil">
+      <wsdl:input message="tns:recorrerFilSoapIn" />
+      <wsdl:output message="tns:recorrerFilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMatriz">
+      <wsdl:input message="tns:eliminarMatrizSoapIn" />
+      <wsdl:output message="tns:eliminarMatrizSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarMatriz">
+      <wsdl:input message="tns:modificarMatrizSoapIn" />
+      <wsdl:output message="tns:modificarMatrizSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="graficarGrafo">
+      <wsdl:input message="tns:graficarGrafoSoapIn" />
+      <wsdl:output message="tns:graficarGrafoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="proyectoWSSoap" type="tns:proyectoWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://proyecto2.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarMatriz">
+      <soap:operation soapAction="http://proyecto2.org/insertarMatriz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graficarMatriz">
+      <soap:operation soapAction="http://proyecto2.org/graficarMatriz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="limpiarWS">
+      <soap:operation soapAction="http://proyecto2.org/limpiarWS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarAb">
+      <soap:operation soapAction="http://proyecto2.org/insertarAb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graficarAb">
+      <soap:operation soapAction="http://proyecto2.org/graficarAb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graficarAbDest">
+      <soap:operation soapAction="http://proyecto2.org/graficarAbDest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graficarAbOrig">
+      <soap:operation soapAction="http://proyecto2.org/graficarAbOrig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarHash">
+      <soap:operation soapAction="http://proyecto2.org/IngresarHash" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graficarHash">
+      <soap:operation soapAction="http://proyecto2.org/graficarHash" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarClaveHash">
+      <soap:operation soapAction="http://proyecto2.org/buscarClaveHash" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarVuelo">
+      <soap:operation soapAction="http://proyecto2.org/insertarVuelo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarAbdm">
+      <soap:operation soapAction="http://proyecto2.org/insertarAbdm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarAbom">
+      <soap:operation soapAction="http://proyecto2.org/insertarAbom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busquedaABD">
+      <soap:operation soapAction="http://proyecto2.org/busquedaABD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recorrerCol">
+      <soap:operation soapAction="http://proyecto2.org/recorrerCol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recorrerFil">
+      <soap:operation soapAction="http://proyecto2.org/recorrerFil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMatriz">
+      <soap:operation soapAction="http://proyecto2.org/eliminarMatriz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarMatriz">
+      <soap:operation soapAction="http://proyecto2.org/modificarMatriz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graficarGrafo">
+      <soap:operation soapAction="http://proyecto2.org/graficarGrafo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="proyectoWSSoap12" type="tns:proyectoWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://proyecto2.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarMatriz">
+      <soap12:operation soapAction="http://proyecto2.org/insertarMatriz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graficarMatriz">
+      <soap12:operation soapAction="http://proyecto2.org/graficarMatriz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="limpiarWS">
+      <soap12:operation soapAction="http://proyecto2.org/limpiarWS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarAb">
+      <soap12:operation soapAction="http://proyecto2.org/insertarAb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graficarAb">
+      <soap12:operation soapAction="http://proyecto2.org/graficarAb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graficarAbDest">
+      <soap12:operation soapAction="http://proyecto2.org/graficarAbDest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graficarAbOrig">
+      <soap12:operation soapAction="http://proyecto2.org/graficarAbOrig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarHash">
+      <soap12:operation soapAction="http://proyecto2.org/IngresarHash" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graficarHash">
+      <soap12:operation soapAction="http://proyecto2.org/graficarHash" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarClaveHash">
+      <soap12:operation soapAction="http://proyecto2.org/buscarClaveHash" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarVuelo">
+      <soap12:operation soapAction="http://proyecto2.org/insertarVuelo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarAbdm">
+      <soap12:operation soapAction="http://proyecto2.org/insertarAbdm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarAbom">
+      <soap12:operation soapAction="http://proyecto2.org/insertarAbom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="busquedaABD">
+      <soap12:operation soapAction="http://proyecto2.org/busquedaABD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recorrerCol">
+      <soap12:operation soapAction="http://proyecto2.org/recorrerCol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recorrerFil">
+      <soap12:operation soapAction="http://proyecto2.org/recorrerFil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMatriz">
+      <soap12:operation soapAction="http://proyecto2.org/eliminarMatriz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarMatriz">
+      <soap12:operation soapAction="http://proyecto2.org/modificarMatriz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graficarGrafo">
+      <soap12:operation soapAction="http://proyecto2.org/graficarGrafo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="proyectoWS">
+    <wsdl:port name="proyectoWSSoap" binding="tns:proyectoWSSoap">
+      <soap:address location="http://192.168.1.6/Proyecto2/proyectoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="proyectoWSSoap12" binding="tns:proyectoWSSoap12">
+      <soap12:address location="http://192.168.1.6/Proyecto2/proyectoWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
